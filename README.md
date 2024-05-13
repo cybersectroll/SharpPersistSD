@@ -1,4 +1,4 @@
-# TrollPersist
+# SharpPersistSD
 A Post-Compromise granular, fully reflective, simple and convenient .NET library to embed persistency to persistency by abusing Security Descriptors of remote machines. The techniques incorporated are not novel but I've yet to come across any documented approach of modifying SCM/Service's SDDL by directly modifying registry keys. Modification of SD for WMI and Remote registry was also added in as an after thought but this means there's a lot more to explore and add for the curious minds.
 
 # Compilation
