@@ -1,7 +1,5 @@
 # TrollPersist
-A Post-Compromise .NET library to embed persistency to persistency by abusing Security Descriptors of remote machines. The techniques incorporated are not novel but I've yet to come across a granular, fully reflective, simple and convenient .NET library that does the following:
-1. Abuse SD of Remote SCM/SVC, Remote Registry, Remote WMI
-2. Modify any registry key's permissions and propogate to subkeys
+A Post-Compromise granular, fully reflective, simple and convenient .NET library to embed persistency to persistency by abusing Security Descriptors of remote machines. The techniques incorporated are not novel but I've yet to come across any documented approach of modifying SCM/Service's SDDL by directly modifying registry keys. WMI and Remote registry was also added in as an after thought.
 
 # Compilation
 
@@ -35,7 +33,7 @@ means it uses the RemoteRegistry protocol to modify registry permissions..
 ```
 - type: "DCOM" or "SVC" or "SCM"
 - SDDL: any legitimate SDDL string such as "(A;;KA;;;WD)" or "(A;;KA;;;S-1-1-0)"
-- Key: key name
+- Key: key name, if type="SVC", the key must follow the format "SYSTEM\CurrentControlSet\Services\<SERVICENAME>\Security"
 - value: value name
 ```
 
