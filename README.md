@@ -114,11 +114,33 @@ means it uses the RemoteRegistry protocol to modify registry permissions..
 3. Monitor SERVICE CREATION / STOP / START
 4. Firewall off unneeded protocols
 
-# Wishlist - which i will not be pursuing
+# Wishlist / Upgrades - which i will not be pursuing
 1. Add features for PSRemoting, ScheduledTask and yada yada
 2. REG_ uses RemoteRegistry, you can incporate WMI to perform registry actions as well to make WMI_ModifyRegistryPermissions
 
-# References
-
 # Disclaimer
 For educational purposes only!
+
+# Credits / References
+- https://www.c-sharpcorner.com/UploadFile/puranindia/windows-management-instrumentation-in-C-Sharp/
+- https://itconnect.uw.edu/tools-services-support/it-systems-infrastructure/msinf/other-help/understanding-sddl-syntax/
+- https://gist.github.com/pich4ya/c15af736f0f494c1a560e6c837d77828 
+- https://learn.microsoft.com/en-us/windows/win32/wmisdk/changing-access-security-on-securable-objects
+- https://unlockpowershell.wordpress.com/2009/11/20/script-remote-dcom-wmi-access-for-a-domain-user/
+- https://albertherd.com/2017/10/19/code-never-lies-documentation-sometimes-do/
+- https://github.com/Mr-Un1k0d3r/SCShell/blob/master/SharpSCShell.cs
+- https://www.experts-exchange.com/questions/27096211/VB-net-set-registry-key-remotely.html
+- https://raw.githubusercontent.com/samratashok/RACE/master/RACE.ps1
+- https://stackoverflow.com/questions/6851961/using-regsetkeysecurity-to-avoid-registry-redirection
+- https://forums.powershell.org/t/unable-to-set-acl-on-remote-registry-kindly-help/7078/5
+- https://posts.specterops.io/remote-hash-extraction-on-demand-via-host-security-descriptor-modification-2cf505ec5c40
+- https://woshub.com/set-permissions-on-windows-service/
+- https://support.microsoft.com/en-us/topic/block-remote-callers-who-are-not-local-administrators-from-starting-stopping-services-c5f77f8e-09e6-57e6-72d1-2c4423627a24
+- https://vbscrub.com/2020/06/02/windows-createservice-api-bypasses-service-permissions/
+- https://github.com/VbScrub/ServiceInstallerTest/blob/master/Program.vb
+- https://stackoverflow.com/questions/2732126/deletesubkey-unauthorizedaccessexception
+- https://stackoverflow.com/questions/28739477/accessing-a-remote-registry-with-local-credentials-of-the-remote-machine-on-th
+- https://www.rhyous.com/2011/08/07/how-to-authenticate-and-access-the-registry-remotely-using-c/
+
+
+
