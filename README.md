@@ -4,8 +4,8 @@ A Post-Compromise granular, fully reflective, simple and convenient .NET library
 
 ### How is this different from https://github.com/mandiant/SharPersist?
 SharPersist is focused on adding persistency on the local machine. 
-SharpPersistSD is focused on backdooring the remote machine so even a non local admin on the machine can regain persistency. (i.e without the need to add local admin on the remote machine)
-If abusing the SCM or REG, it will be privileged and the regained access can run as SYSTEM.
+SharpPersistSD is focused on backdooring the remote machine so that persistency or code execution can be established later. (i.e persistency to persistency)
+Post backdooring, even a non local admin on the remote machine will be able to regain privileged/SYSTEM persistency/execution if using SCM or REG.
 
 # Compiled
 Refer to release.
