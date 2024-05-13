@@ -7,6 +7,9 @@ SharPersist is focused on adding persistency on the local machine.
 SharpPersistSD is focused on backdooring the remote machine so even a non local admin on the machine can regain persistency. (i.e without the need to add local admin on the remote machine)
 If abusing the SCM or REG, it will be privileged and the regained access can run as SYSTEM.
 
+# Compiled
+Refer to release.
+
 # Compilation
 
 1. Git clone / download project and open with visual studio
