@@ -1,12 +1,12 @@
 # SharpPersistSD
-A Post-Compromise granular, fully reflective, simple and convenient .NET library to embed persistency to persistency by abusing Security Descriptors of remote machines. The techniques incorporated are not novel but I've yet to come across any documented approach of modifying SCM/Service's SDDL by directly modifying registry keys. Modification of SD for WMI and Remote registry was also added in as an after thought but this means there's a lot more to explore and add for the curious minds.
+A Post-Compromise granular, fully reflective, simple and convenient .NET library to embed persistency to persistency by abusing Security Descriptors of remote machines. The techniques incorporated are not novel but I've yet to come across any documented approach of modifying SCM/Service's SDDL by directly modifying registry keys. Modification of SD for WMI and Remote registry was also added in as an after thought but this means there's a lot more to explore and add for the curious minds. Hopefully this raises awareness for blueteamers to take notice!
 
 
 ### How is this different from https://github.com/mandiant/SharPersist?
 SharPersist is focused on adding persistency on the local machine. 
 SharpPersistSD is focused on backdooring the remote machine so that persistency or code execution can be established later. (i.e persistency to persistency)
 Post backdooring, even a non local admin on the remote machine will be able to regain privileged/SYSTEM persistency/execution if using SCM or REG.
-Hopefully this raises awareness for blueteamers to take notice!
+
 
 # Compiled
 Refer to release.
