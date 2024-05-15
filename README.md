@@ -118,11 +118,11 @@ Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 
 #Can use any wmi tool to connect (eg. SharpWMI)
 ```
-## SCHTASK Tasks key, allow everyone. Must run on LOCAL MACHINE AS SYSTEM  
+## SCHTASK TaskCache\Tasks key, allow everyone. Must run on LOCAL MACHINE AS SYSTEM  
 ```
 #Modify Reg Key to allow "EVERYONE" access to modify existing scheduled tasks via reg key 
 [SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("localhost","SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks","EVERYONE",$true)
-#Use GhostTask to modify task from remote machine
+#Use GhostTask to modify task from remote machine as non admin
 ```
 
 # Blue Team and Mitigations
@@ -132,7 +132,7 @@ Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 4. Firewall off unneeded protocols
 
 # Wishlist / Upgrades - which i will not be pursuing
-1. Add features for PSRemoting, ScheduledTask and yada yada
+1. Add features for PSRemoting and yada yada
 2. REG_ uses RemoteRegistry, you can incporate WMI to perform registry actions as well to make WMI_ModifyRegistryPermissions
 
 # Disclaimer
