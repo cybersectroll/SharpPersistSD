@@ -28,7 +28,7 @@ means it uses the RemoteRegistry protocol to modify registry permissions..
 1. The library checks the SDDL syntax but not the SDDL logic, so best to stick to example SDDL and just change the principal of the SDDL
 2. As this is a Post-Compromise library, it assumes you are running with the relevant privileges and permissions already.
 3. Library is focused for domain environments, but you can use it in workgroup with the relevant additional changes.
-4. Modifying permissions via REG_ModifyRegistryPermissions may not show up immediately on when viewing permissions through GUI. Verify it using:
+4. Modifying permissions via REG_ModifyRegistryPermissions may not show up immediately when viewing permissions through GUI. Verify it using:
 ```
 Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 ```
