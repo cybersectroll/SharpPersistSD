@@ -122,7 +122,7 @@ Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 ```
 #Modify Reg Key to allow "EVERYONE" access to modify existing scheduled tasks via reg key 
 [SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("localhost","SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks","EVERYONE",$true)
-#Use GhostTask to modify task
+#Use GhostTask to modify task from remote machine
 ```
 
 # Blue Team and Mitigations
