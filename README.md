@@ -120,9 +120,9 @@ Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 ```
 ## SCHTASK Tasks key, allow everyone. Must run on LOCAL MACHINE AS SYSTEM  
 ```
-#Modify Reg Key to allow "EVERYONE" access to modify existing scheduled tasks via reg key (eg. GhostTask.exe)
+#Modify Reg Key to allow "EVERYONE" access to modify existing scheduled tasks via reg key 
 [SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("localhost","SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks","EVERYONE",$true)
-#Can use any wmi tool to connect (eg. SharpWMI)
+#Use GhostTask to modify task
 ```
 
 # Blue Team and Mitigations
