@@ -3,7 +3,7 @@ A Post-Compromise granular, fully reflective, simple and convenient .NET library
 
 ## Important
 Modifying permissions via REG_ModifyRegistryPermissions will not show the new permissions on GUI\
-Verify using "Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
+Verify using "Get-Acl -Path "HKLM:SYSTEM\\<key>" | Format-List
 
 ### How is this different from https://github.com/mandiant/SharPersist?
 SharPersist is focused on adding persistency on the local machine. 
