@@ -1,11 +1,6 @@
 # SharpPersistSD
 A Post-Compromise granular, fully reflective, simple and convenient .NET library to embed persistency to persistency by abusing Security Descriptors of remote machines. The techniques incorporated are not novel but I've yet to come across any documented approach of modifying SCM/Service's SDDL by directly modifying registry keys. Modification of SD for WMI and Remote registry was also added in as an after thought but this means there's a lot more to explore and add for the curious minds. 
 
-## Important
-Modifying permissions via REG_ModifyRegistryPermissions may not show up immediately on when viewing permissions through GUI. Verify it using:
-```
-Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
-```
 
 ### How is this different from https://github.com/mandiant/SharPersist?
 SharPersist is focused on adding persistency on the local machine. 
@@ -33,7 +28,10 @@ means it uses the RemoteRegistry protocol to modify registry permissions..
 1. The library checks the SDDL syntax but not the SDDL logic, so best to stick to example SDDL and just change the principal of the SDDL
 2. As this is a Post-Compromise library, it assumes you are running with the relevant privileges and permissions already.
 3. Library is focused for domain environments, but you can use it in workgroup with the relevant additional changes.
-
+4. Modifying permissions via REG_ModifyRegistryPermissions may not show up immediately on when viewing permissions through GUI. Verify it using:
+```
+Get-Acl -Path "HKLM:SYSTEM\<key>" | Format-List
+```
 
 # library
 
