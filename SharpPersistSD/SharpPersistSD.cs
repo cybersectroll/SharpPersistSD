@@ -48,7 +48,7 @@ namespace SharpPersistSD
             try
             {
 
-                Console.WriteLine("[+] Using RemoteRegistry to set Registry' SD");
+                Console.WriteLine("[+] Using RemoteRegistry to set Registry Permissions");
 
                 RegistryKey key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, hostname).OpenSubKey(subkey, true);
                 if (key == null)
@@ -110,7 +110,7 @@ namespace SharpPersistSD
         {
             try
             {
-                Console.WriteLine("[+] Using RemoteRegistry to set Registry Permissions");
+                Console.WriteLine("[+] Using RemoteRegistry to set Registry SD");
 
                 RegistryKey HKLMHive = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, hostname);
 
